@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% University of the Philippines Baguio                        
+%% Department of Mathematics and Computer Science              
+%% Master and Bachelor in Mathematics Thesis Defense Announcement
+%%
+%% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		
+%% Version: 08.10.2022                            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt]{report}
+\usepackage{geometry}
+	\geometry{textheight=10 in, left = 0.5 in, right = 0.5
+ in
+	 }
+\usepackage{calc}
+\usepackage{graphicx}
+\graphicspath{{../Figures/}}
+\input{../UPBMATH_def}
+\pagestyle{empty}
+	
+% \authortwofalse
+% \coadvisedfalse
+% \examinertrue
+% \examinertwotrue %will not work if \examinertrue is commented
+\begin{document}
+	\topskip0pt
+	\vspace*{\fill}
+	\centering
+	\begin{minipage}{0.2\textwidth}\flushright
+		\includegraphics[height=2.5 cm, width=2.5 cm]{updlogo.png}
+	\end{minipage}%%
+ 	\begin{minipage}{0.6 \textwidth}	\centering
+	Department of Mathematics and Computer Science\\
+	College of Science\\
+    University of the Philippines Baguio\\
+    Governor Pack Road, 2600 Baguio City
+	\end{minipage}%%
+	\begin{minipage}{0.2\textwidth}
+	\includegraphics[height=2.5 cm, width=2.5 cm]{cslogo.png}
+	\end{minipage}
+    \bigskip
+
+%     \begin{minipage}[c]{2.5cm}
+% 		\includegraphics[scale = 0.06]{upseal.png}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{5in}\small	\raggedleft
+% 		Department of Mathematics and Computer Science
+% 		College of Science\\
+%       University of the Philippines Baguio\\
+%       Governor Pack Road, 2600 Baguio City\\
+% Tel: (074)-442-7231 Telefax: (074)-444-3128
+
+% 	\end{minipage}%%
+ 
+	\vspace{0.75 cm}
+	\textbf{Announcement of the Thesis Examination}\\
+	\vspace{0.5 cm} 
+	of\\
+	\vspace{0.5 cm} 
+	{\textbf{\MakeUppercase{ \authoronefirst \ \authoronelast\ \ifauthoroneext  \@authoroneext\fi}}}\\
+	\vspace{0.15 cm} 
+    \ifauthortwo
+	and\\
+	\vspace{0.15 cm} 
+	{\textbf{\MakeUppercase{ \authortwofirst \ \authortwolast\ \ifauthortwoext  \@authortwoext\fi}}}\\
+	\vspace{0.5 cm} 
+	in their Thesis\\
+    \else \vspace{.85 cm}
+    \fi
+	\vspace{0.15 cm}
+	{\textbf{ \emph{\title}}}\\
+	\vspace{0.75 cm} 
+	for the degree of\\
+	\vspace{0.15 cm}
+	{\textbf{\MakeUppercase{\degree\ of Science in Mathematics}}}\\
+	\vspace{0.75 cm} 
+	\defensedate\\
+	\defenseplace\\
+	\vspace{0.75 cm} 
+    \ifcoadvised
+        \begin{minipage}[t]{.44\textwidth}\centering
+            THESIS ADVISER\\
+            \vspace{0.1 cm} 
+            \textbf{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+            \small{
+            \adviseroneposition\\
+            % \adviseronedept\\
+            % \adviseronecollege\\
+            \adviseroneuniv}
+        \end{minipage}\hspace{.02\textwidth}
+        \begin{minipage}[t]{.44\textwidth}\centering
+            THESIS CO-ADVISER\\
+            \vspace{0.1 cm} 
+            \textbf{\MakeUppercase{\advisertwo}, \advisertwodegree}\\
+            \small{
+            \advisertwoposition\\
+            % \advisertwodept\\
+            % \advisertwocollege\\
+            \advisertwouniv}
+        \end{minipage}\\
+     
+        \ifexaminer
+            \ifexaminertwo
+                \vspace{0.75 cm} 
+                THESIS READER\\
+                \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\reader}, \readerdegree}\\
+                    \small{
+                    \readerposition\\
+                    % \readerdept\\
+                    % \readercollege\\
+                    \readeruniv}\\
+
+                \vspace{0.75 cm} 
+                
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    EXAMINER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\examiner}, \examinerdegree}\\
+                    \small{
+                    \examinerposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \examineruniv}
+                \end{minipage}\hspace{.02\textwidth}
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    EXAMINER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\examiner}, \examinerdegree}\\
+                    \small{
+                    \examinerposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \examineruniv}
+                \end{minipage}\\
+
+                \vspace{0.75 cm} 
+            \else
+                \vspace{0.75 cm} 
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    EXAMINER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\examiner}, \examinerdegree}\\
+                    \small{
+                    \examinerposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \examineruniv}
+                \end{minipage}\hspace{.02\textwidth}
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    THESIS READER\\
+                \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\reader}, \readerdegree}\\
+                    \small{
+                    \readerposition\\
+                    % \readerdept\\
+                    % \readercollege\\
+                    \readeruniv}\\
+                    \vspace{0.75 cm} 
+                \end{minipage}\\
+            \fi
+        \else
+            \vspace{0.75 cm} 
+            THESIS READER\\
+            \vspace{0.1 cm} 
+            \textbf{\MakeUppercase{\reader}, \readerdegree}\\
+            \small{
+            \readerposition\\
+            % \readerdept\\
+            % \readercollege\\
+            \readeruniv}\\
+        \fi
+    \else
+        \ifexaminer
+            \ifexaminertwo
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    THESIS ADVISER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+                    \small{
+                    \adviseroneposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \adviseroneuniv}
+                \end{minipage}\hspace{.02\textwidth}
+                \begin{minipage}[t]{.44\textwidth}\centering
+                     THESIS READER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\reader}, \readerdegree}\\
+                    \small{
+                    \readerposition\\
+                    % \readerdept\\
+                    % \readercollege\\
+                    \readeruniv}
+                \end{minipage}\\
+    
+                \vspace{0.75 cm} 
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    EXAMINER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\examiner}, \examinerdegree}\\
+                    \small{
+                    \examinerposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \examineruniv}
+                \end{minipage}\hspace{.02\textwidth}
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    EXAMINER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\examiner}, \examinerdegree}\\
+                    \small{
+                    \examinerposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \examineruniv}
+                \end{minipage}\\
+                \vspace{0.75 cm}
+            \else
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    THESIS ADVISER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+                    \small{
+                    \adviseroneposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \adviseroneuniv}
+                \end{minipage}\hspace{.02\textwidth}
+                \begin{minipage}[t]{.44\textwidth}\centering
+                    EXAMINER\\
+                    \vspace{0.1 cm} 
+                    \textbf{\MakeUppercase{\examiner}, \examinerdegree}\\
+                    \small{
+                    \examinerposition\\
+                    % \adviseronedept\\
+                    % \adviseronecollege\\
+                    \examineruniv}
+                \end{minipage}\\
+    
+                \vspace{0.75 cm} 
+                THESIS READER\\
+                \vspace{0.1 cm} 
+                \textbf{\MakeUppercase{\reader}, \readerdegree}\\
+                \small{
+                \readerposition\\
+                % \readerdept\\
+                % \readercollege\\
+                \readeruniv}\\
+                \vspace{0.75 cm} 
+            \fi
+            
+        \else
+            \begin{minipage}[t]{.44\textwidth}\centering
+                THESIS ADVISER\\
+                \vspace{0.1 cm} 
+                \textbf{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+                \small{
+                \adviseroneposition\\
+                % \adviseronedept\\
+                % \adviseronecollege\\
+                \adviseroneuniv}
+            \end{minipage}\hspace{.02\textwidth}
+            \begin{minipage}[t]{.44\textwidth}\centering
+                THESIS READER\\
+                \vspace{0.1 cm} 
+                \textbf{\MakeUppercase{\reader}, \readerdegree}\\
+                \small{
+                \readerposition\\
+                % \readerdept\\
+                % \readercollege\\
+                \readeruniv}\\
+                \vspace{0.75 cm} 
+            \end{minipage}\\
+        \fi
+     \fi
+\begin{minipage}[t]{.44\textwidth}\centering
+    Endorsed by:\\
+    \vspace{1 cm} 
+    \textbf{\MakeUppercase{\chair}, \chairdegree}\\
+    \small{
+    Chair, DMCS\\
+    College of Science\\
+    University of the Philippines Baguio}\\
+\end{minipage}\hspace{.02\textwidth}
+\begin{minipage}[t]{.44\textwidth}\centering
+    Authorized by:\\
+    \vspace{1 cm} 
+    \textbf{\MakeUppercase{\dean}, \deandegree}\\
+    \small{
+    Dean, College of Science\\
+    University of the Philippines Baguio}\\
+\end{minipage}
+\vspace*{\fill}
+\end{document}

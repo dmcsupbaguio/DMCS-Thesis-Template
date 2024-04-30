@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% University of the Philippines Baguio                        
+%% Department of Mathematics and Computer Science              
+%% Master and Bachelor in Mathematics Thesis Defense Approval Page
+%%
+%% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		
+%% Version: 08.10.2022                            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt]{report}
+\usepackage{geometry}
+	\geometry{top=1 in, bottom=1 in, left=1.5 in, right=1in}
+
+\input{../UPBMATH_def}
+	
+\pagestyle{empty}
+
+\begin{document}
+\thispagestyle{empty}
+\dsp
+\noindent This is to certify that the \thesistype\ Thesis entitled "\textbf {\title}," prepared and submitted by \textbf{\authoronefirst{} \authoronelast{}}\ifauthortwo \ and \textbf{\authortwofirst{} \authortwolast{}}\fi, to fulfill part of the requirements for the degree of \textbf{\degree\ of Science in Mathematics}, was successfully defended and approved on \approvaldate.\\
+
+\vspace{1cm}
+
+\noindent \begin{minipage}{.5\textwidth}
+	\centering
+	\underline{\MakeUppercase{\@adviserone}, \adviseronedegree}\\
+	Thesis Adviser
+\end{minipage}%%
+\ifcoadvised
+    \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\@advisertwo}, \advisertwodegree}\\
+    	Thesis Co-adviser
+    \end{minipage}\\
+    
+    \vspace{1cm}
+    \noindent \begin{minipage}{\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\reader}, \readerdegree}\\
+    	Thesis Reader
+    \end{minipage}
+\else
+    \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\reader}, \readerdegree}\\
+    	Thesis Reader
+    \end{minipage}\\
+\fi
+
+\vspace{1cm}
+\noindent The Department of Mathematics and Computer Science endorses the acceptance of this \thesistype\ Thesis as partial fulfillment of the requirements for the degree of \degree\ of Science in Mathematics.\\
+
+\vspace{1cm}
+\noindent\begin{minipage}{\textwidth}
+	\noindent\underline{\MakeUppercase{\chair}, \chairdegree}\\
+	Chair, Department of Mathematics and Computer Science
+\end{minipage}
+\vspace{1 cm}
+
+\noindent This \thesistype\ Thesis is hereby officially accepted as partial fulfillment of the requirements for the degree of \degree\ of Science in Mathematics.\\
+
+\vspace{1cm}
+\hfill \begin{minipage}{6cm}
+	\centering
+	\underline{\MakeUppercase{\dean}, \deandegree}\\
+	Dean, College of Science
+\end{minipage}
+	\end{document}

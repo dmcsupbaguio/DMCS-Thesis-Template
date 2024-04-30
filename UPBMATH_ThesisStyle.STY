@@ -1,0 +1,461 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DO NOT DELETE THIS
+%% University of the Philippines Baguio                        
+%% Department of Mathematics and Computer Science              
+%% Master and Bachelor in Mathematics Thesis Document Style	
+%%
+%% adapted from UP MATH Department Master's Thesis
+%% 		Document Style by Joma Escaner (jlescaner@up.edu.ph)
+%%
+%% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		            
+%% Version: 2024/03/08                            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{UPBMATH_ThesisStyle}[2024/03/08 v 1]
+\typeout{UPB MS and BS Math Thesis Style Version 1}
+
+\makeatletter
+
+% We use a4paper (8.3" x 11.7") 1" margin will be used for headers and footers
+% and additional 0.5" for binding i.e. 1.5" margin of top and bottom, 
+% 1.5" margin on binding page, 1" margin on the other  
+\textwidth 5.8 in
+\textheight 8.7 in
+
+% Disallow page breaks at hyphens by using \brokenpenalty=100 to manually 
+% search for and fix page breaks
+\brokenpenalty=10000
+
+% For some environments we switch back to single-spacing, also
+% provide \dsp in case you need double-spacing where single-spacing
+% is otherwise used.
+%   NOTE: the use of \large immediately followed \normalsize is
+%     because \baselineskip, the distance between lines, is not
+%     affected until the font size is changed.
+% From setspace package, the double spacing is set to 1.667 baselinestretch
+% while single spacing is set to 1.25 baselinestretch.
+
+\newcommand{\setstretch}[1]{%
+    \def\baselinestretch{#1}%
+    \@currsize
+}
+
+\def\ssp{\setstretch{\setspace{1.25}}
+    \vskip \baselineskip % Correction for coming into singlespace
+}
+
+\def\dsp{%
+    \setstretch{1.667}% default
+    % DPC 6.7b guard \@ptsize
+    \ifx
+        \@ptsize\@undefined
+    \else
+        \ifcase \@ptsize \relax % 10pt
+            \setstretch {1.667}%
+        \or % 11pt
+            \setstretch {1.618}%
+        \or % 12pt
+            \setstretch {1.655}%
+        \fi
+    \fi
+}
+
+
+% To allow running page footers:
+\def\leftfoot#1{\gdef\@leftfoot{#1}}
+\def\rightfoot#1{\gdef\@rightfoot{#1}}
+
+% Default initialization of footers:
+\def\@leftfoot{}\def\@rightfoot{}
+
+% Plain page style (modified version from `report.sty')
+%   - modify \@oddfoot to contain footer information:
+\def\ps@plain{\let\@mkboth\@gobbletwo
+     \def\@oddhead{}%
+     \def\@oddfoot{\rm\makebox[.4\linewidth][l]\@leftfoot%
+       \hfil\thepage\hfil\makebox[.4\linewidth][r]\@rightfoot}%
+     \def\@evenhead{}\let\@evenfoot\@oddfoot}
+
+% Running headers (modified version from `report.sty'):
+%   - do not force running headers to uppercase
+%   - modify \@oddfoot and \@evenfoot to contain footer information
+%     (if two-sided, reverse left and right footers on even numbered pages):
+\if@twoside 
+\def\ps@headings{\let\@mkboth\markboth
+\def\@oddfoot{\rm\@leftfoot\hfil\@rightfoot}%
+\def\@evenfoot{\rm\@rightfoot\hfil\@leftfoot}%
+\def\@evenhead{\rm \thepage\hfil \sl \leftmark}
+\def\@oddhead{\hbox{}\sl \rightmark \hfil
+    \rm\thepage}\def\chaptermark##1{\markboth {\ifnum \c@secnumdepth >\m@ne
+    \@chapapp\ \thechapter. \ \fi ##1}{}}
+\def\sectionmark##1{\markright {\ifnum \c@secnumdepth >\z@ \thesection. \ \fi ##1}}}
+\else 
+\def\ps@headings{\let\@mkboth\markboth
+\def\@oddfoot{\rm\@leftfoot\hfil\@rightfoot}%
+\def\@evenfoot{}\def\@oddhead{\hbox {}\sl \rightmark \hfil
+\rm\thepage}\def\chaptermark##1{\markright {\ifnum \c@secnumdepth
+>\m@ne \@chapapp\ \thechapter. \ \fi ##1}}}\fi
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+\def\@oddhead{\hbox{}\sl\rightmark \hfil
+\rm\thepage}\def\@oddfoot{}\def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox
+{}}\def\@evenfoot{}\def\sectionmark##1{}\def\subsectionmark##1{}}
+
+% Footnotes (modified version from `latex.tex'):
+%   - sets footnotes to be single spaced
+\long\def\@footnotetext#1{\insert\footins{\ssp\footnotesize  % added \ssp
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore
+   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces
+      #1\strut}}}
+
+% a version of itemize that has no space between the items
+\renewenvironment{itemize}{\begin{list}{$\bullet$}
+{\setlength{\rightmargin}{\leftmargin}
+\setlength{\itemsep}{0em}
+\setlength{\topsep}{0em}
+\setlength{\parsep}{0em}}}{\end{list}}
+
+
+%To make the captions centered and dotted leaders for chapter
+\def\@chapnum{\ \thechapter}
+
+% Modified the following so that "Chapter," "Appendix," or whatever appears
+% before the number in the table of contents.  3/10/93 tpk.
+\def\@chapter[#1]#2{
+  \refstepcounter{chapter}
+  \typeout{\@chapapp\space\thechapter}
+  \addcontentsline{toc}{chapter}
+  {\protect\numberline{\@chapapp\space\thechapter\space}#1}
+  \chaptermark{#1}
+  \addtocontents{lof}{\protect\addvspace{10pt}}
+  \addtocontents{lot}{\protect\addvspace{10pt}} 
+  \if@twocolumn
+  \@topnewpage[\@makechapterhead{#2}]
+  \else \@makechapterhead{#2}
+  \@afterheading \fi}
+
+\RequirePackage{appendix}
+\def\appendx{
+\appendix
+\appendicestocpagenum
+}
+  
+
+  
+
+% Modified \@makechapterhead to allow multi-line chapter titles. Automatic
+% linebreaking is turned off because lines are to be broken for grammatical
+% sense, not for line filling purposes, according to the Thesis Office. 
+% Additional space for new chapters are removed.
+
+ \def\@makechapterhead#1{%
+  {\parindent 0pt
+   \center
+   \hyphenpenalty 10000%
+   \ifnum \c@secnumdepth > \m@ne
+     \LARGE\bf \@chapapp{} \thechapter\par
+     \vskip 20pt
+   \fi
+   \LARGE\bf #1\par
+   \nobreak
+   \vskip 40pt}
+  \hyphenpenalty 50}
+
+\def\@makeschapterhead#1{%
+  {\parindent 0pt
+   \center
+   \hyphenpenalty 10000%
+   \LARGE\bf #1\par
+   \nobreak
+   \vskip 40pt}
+  \hyphenpenalty 50}
+
+% All bolding removed from the table of contents.  Leaders added to all
+% entries in the tables.  3/10/93 tpk.
+\def\l@chapter#1#2{\addpenalty{-\@highpenalty}
+ \vskip 1.0em plus 1pt \@tempdima 5.3em
+ \begingroup
+ \parindent \z@ \rightskip \@pnumwidth
+ \parfillskip -\@pnumwidth %\bf\ifboldmathon\protect\boldmath\fi
+ \leavevmode \advance\leftskip\@tempdima \hskip -\leftskip #1\nobreak
+ \leaders\hbox{$\m@th \mkern \@dotsep mu.\mkern \@dotsep mu$}\hfill
+ \nobreak\hbox to\@pnumwidth{\hss #2}\par
+ \penalty\@highpenalty \endgroup}
+
+% Table of Contents (modified version from `report.sty'):
+%   - change the title to `Table of Contents'
+%   - change to single space
+ \def\tableofcontents{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{Table of Contents\@mkboth
+ {Table of Contents}{Table of Contents}}
+ {\@starttoc{toc}}\if@restonecol\twocolumn\fi}
+ 
+% List of Figures (modified version from `report.sty'):
+%   - change to single space
+%   - add to table of contents
+\def\listoffigures{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{List of Figures\@mkboth
+ {List of Figures}{List of Figures}}{\ssp\@starttoc{lof}}\if@restonecol\twocolumn
+ \fi\addcontentsline{toc}{chapter}{List of Figures}}
+
+% List of Tables (modified version from `report.sty'):
+%   - change to single space
+%   - add to table of contents
+\def\listoftables{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{List of Tables\@mkboth
+ {List of Tables}{List of Tables}}{\ssp\@starttoc{lot}}\if@restonecol\twocolumn
+ \fi\addcontentsline{toc}{chapter}{List of Tables}}
+
+% Modify \include{}
+%	- remove new pages generated before and after including a tex file
+\let\oldInclude=\include
+\def\include#1{\bgroup\def\clearpage{\relax}\oldInclude{#1}\egroup}
+
+%Here are the rest of the front matter defining macros
+
+\def\authoronelast#1{\gdef\@authoronelast{#1}}
+\def\authoronefirst#1{\gdef\@authoronefirst{#1}}
+\def\authoroneext#1{\gdef\@authoroneext{#1}}
+\def\authortwolast#1{\gdef\@authortwolast{#1}}
+\def\authortwofirst#1{\gdef\@authortwofirst{#1}}
+\def\authortwoext#1{\gdef\@authortwoext{#1}}
+\def\dept#1{\gdef\@dept{#1}}
+\def\college#1{\gdef\@college{#1}}
+\def\university#1{\gdef\@university{#1}}
+\def\dean#1{\gdef\@dean{#1}}
+\def\location#1{\gdef\@location{#1}}
+\def\degreeonly#1{\gdef\@degreeonly{#1}}
+\def\thesistype#1{\gdef\@thesistype{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\approvaldate#1{\gdef\@approvaldate{#1}}
+\def\specialization#1{\gdef\@specialization{#1}}
+\def\titledate#1{\gdef\@titledate{#1}}
+\def\adviser#1{\gdef\@adviser{#1}}
+\def\advisertwo#1{\gdef\@advisertwo{#1}}
+\def\reader#1{\gdef\@reader{#1}}
+\def\examiner#1{\gdef\@examiner{#1}}
+\def\examinertwo#1{\gdef\@examinertwo{#1}}
+\def\chair#1{\gdef\@chair{#1}}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}}
+\def\abs#1{\gdef\@abs{#1}}
+\def\acknowledge#1{\gdef\@acknowledge{#1}}
+\def\thesisclassification#1{\gdef\@thesisclassification{#1}}
+\def\classnote#1{\gdef\@classnote{#1}}
+\def\coverdate#1{\gdef\@coverdate{#1}}
+\def\@title{}
+\def\@authoronelast{}
+\def\@authoronefirst{}
+\def\@authoroneext{}
+\def\@authortwolast{}
+\def\@authortwofirst{}
+\def\@authortwoext{}
+\def\@dept{Department of Mathematics and Computer Science}
+\def\@college{College of Science}
+\def\@university{University of the Philippines Baguio}
+\def\@thesistype{\@degreeonly's Thesis}
+\def\@location{Baguio City}
+\def\@advisertwo{}
+\def\@approvaldate{}
+\def\@degree{\@degreeonly\ of Science in Mathematics}
+\def\@specialization{}
+\def\@abs{}
+\def\@thesisclassification{}
+\def\@classnote{}
+\def\@acknowledge{}
+\def\@titledate{}
+\def\@submitdate{\ifcase\the\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space \number\the\year}
+
+% December theses should have the next year as the copyright year
+\ifnum\month=12
+   \@tempcnta=\year \advance\@tempcnta by 1
+    \edef\@copyrightyear{\number\the\@tempcnta}
+\else
+   \def\@copyrightyear{\number\the\year}
+\fi
+
+\newif\ifspecialize \specializefalse
+\newif\ifauthoroneext \authoroneextfalse
+\newif\ifauthortwoext \authortwoextfalse
+\newif\ifacknowledge \acknowledgefalse
+\newif\ifauthortwo \authortwotrue
+\newif\ifcoadvised \coadvisedtrue
+
+
+\def\titlep{%
+\ifcoadvised 
+	\topskip0pt
+    \thispagestyle{empty}%
+    \dsp
+	\begin{center}
+	\includegraphics[height=3.cm, width=3.cm]{updlogo.png}\vspace{0.5cm}
+
+	{\textbf {UNIVERSITY OF THE PHILIPPINES BAGUIO}}
+	\vspace{0.5cm}
+	
+	{\textbf {\@degree}}\\
+	 \vspace{0.5cm}
+	
+    {\textbf{ \@authoronefirst \ \@authoronelast\ \ifauthoroneext  \@authoroneext\fi}}\\
+    \ifauthortwo
+        {\textbf{ \@authortwofirst \ \@authortwolast\ \ifauthortwoext  \@authortwoext\fi}}\\
+        \vspace{0.75cm}
+    \else \vspace{1 cm} \fi
+    
+	
+	
+    {\textbf{ \emph{\@title}}}
+    \end{center}
+	\vspace{0.25cm}
+	
+	\begin{center}\ssp
+    Thesis Adviser:\vspace{0.25cm}
+   	 
+    {\textbf {\@adviser}}\\
+    {\textbf{\@dept}}\\
+    \expandafter{\textbf{\@university}}\\
+	\vspace{0.25cm}
+
+    
+    Thesis Co-adviser:\vspace{0.25cm}
+	
+    {\textbf {\@advisertwo}}\\
+	{\textbf{\@dept}}\\
+	\expandafter{\textbf{\@university}}\\
+    \end{center}
+    \vspace{0.5cm}
+    
+    \begin{center}\dsp
+    Date of Submission:\\
+    \@titledate\\
+    \vspace{0.5cm}
+ 
+   	Thesis Classification:\\
+   	{\bf {\@thesisclassification}}\\
+   	\end{center}
+    \vfill
+    
+    \begin{center}
+    \emph{\@classnote}
+    \end{center}
+    \dsp
+    \newpage
+\else
+    \topskip0pt
+    \thispagestyle{empty}%
+    \dsp
+	\begin{center}
+	\includegraphics[height=3.cm, width=3.cm]{updlogo.png}\vspace{0.5cm}
+
+	{\textbf {UNIVERSITY OF THE PHILIPPINES BAGUIO}}
+	\vspace{0.5cm}
+	
+	{\textbf {\@degree}}\\
+	 \vspace{0.5cm}
+	
+    {\textbf{ \@authoronefirst \ \@authoronelast\ \ifauthoroneext  \@authoroneext\fi}}\\
+    \ifauthortwo
+        {\textbf{ \@authortwofirst \ \@authortwolast\ \ifauthortwoext  \@authortwoext\fi}}\\
+        \vspace{1 cm}
+    \else \vspace{1 cm} \fi
+	
+    {\textbf{ \emph{\@title}}}
+    \end{center}
+	\vspace{0.5cm}
+	
+	\begin{center}\ssp
+    Thesis Adviser:\vspace{0.25cm}
+   	 
+    {\textbf {\@adviser}}\\
+    {\textbf{\@dept}}\\
+    \expandafter{\textbf{\@university}}\\
+	\vspace{0.25cm}
+    \end{center}
+    \vspace{0.5cm}
+    
+    \begin{center}\dsp
+    Date of Submission:\\
+    \@titledate\\
+    \vspace{0.5cm}
+ 
+   	Thesis Classification:\\
+   	{\bf {\@thesisclassification}}\\
+   	\end{center}
+    \vfill
+    
+    \begin{center}
+    \emph{\@classnote}
+    \end{center}
+    \dsp
+    \newpage
+\fi
+}
+
+\RequirePackage{calc}
+\def\abstractpage{
+    \chapter*{Abstract}
+    \begin{center}{\large \bf \@title} \end{center}
+    \bigskip
+    
+    \ssp
+    \fontsize{12}{12}
+    \noindent
+    \begin{minipage}[t]{.5\textwidth}
+    \@authoronefirst\ \@authoronelast\ \ifauthoroneext \ \@authoroneext\fi\\
+    \ifauthortwo
+    \@authortwofirst\ \@authortwolast\ \ifauthoroneext \ \@authoroneext\fi\\
+    \else \fi
+    University of the Philippines Baguio\\
+    \@submitdate
+    \end{minipage}\hfill
+    \ifcoadvised
+        \begin{minipage}[t]{\maxof{\widthof{\@adviser}}{\widthof{\@advisertwo}}}
+        	Advisers: \\
+        	\@adviser\\
+        	\@advisertwo
+        \end{minipage}
+    \else
+        \begin{minipage}[t]{\widthof{\@adviser}}
+        	Adviser: \\
+        	\@adviser
+        \end{minipage}
+    \fi
+    \vspace{0.4in}
+    
+    \dsp
+    \@abs 
+    \addcontentsline{toc}{chapter}{Abstract}
+}
+
+\def\acknowledgepage{\newpage
+    \chapter*{Acknowledgments} \vspace{0.3in} \dsp
+    \@acknowledge 
+    \addcontentsline{toc}{chapter}{Acknowledgments}}
+    
+    \def\beforepreface{
+       \pagenumbering{roman}
+        \pagestyle{plain}
+        \titlep
+}
+
+\def\afterpreface{\newpage
+    \pagenumbering{arabic}
+    \pagestyle{headings}
+	}
+
+% Start with pagestyle{headings} in case front matter isn't processed
+\pagestyle{headings}
+
+% Make the thesis double-spaced
+\dsp
+
+\makeatother
+
+% END OF UPBMATH_ThesisStyle.STY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

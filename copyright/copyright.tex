@@ -1,0 +1,146 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DO NOT DELETE THIS
+%% University of the Philippines Baguio                        
+%% Department of Mathematics and Computer Science              
+%% Master and Bachelor in Mathematics Thesis Preamble
+%%
+%% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		
+%% Version: 2024/03/08                          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt]{report}
+\input{../UPBMATH_def}
+\usepackage{geometry}
+	\geometry{top=1 in, bottom=1 in, left=1.5 in, right=1in}
+
+\usepackage{graphicx}
+\graphicspath{{../Figures/}}
+
+\begin{document}
+	\thispagestyle{empty}%
+	\centering
+	\includegraphics[height=2.5 cm, width=2.5 cm]{updlogo.png}
+	\vspace{1cm}
+	
+	\textbf {UNIVERSITY OF THE PHILIPPINES BAGUIO}
+	\vspace{0.75 cm} 
+		
+	\textbf {\degree\ of Science in Mathematics}
+	\vspace{0.75 cm} 
+
+	{\bf\authoronefirst \ \authoronelast\ \ifauthoroneext  \@authoroneext\fi}\\
+	\vspace{0.3 cm} 
+    \ifauthortwo
+	{\bf\authortwofirst \ \authortwolast\ \ifauthortwoext  \@authortwoext\fi}\\
+    \vspace{0.75 cm}
+    \else 	\vspace{1 cm} \fi
+
+
+	\textbf{ \emph{\title}\\}
+	\vspace{1 cm}
+
+    
+	\begin{minipage}[t]{.44\textwidth}\centering
+		\textbf{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+		\small{
+			Thesis Adviser\\
+			\adviseroneuniv}
+	\end{minipage}\hspace{.02\textwidth}%%
+    \ifcoadvised
+	\begin{minipage}[t]{.44\textwidth}\centering
+		\textbf{\MakeUppercase{\advisertwo}, \advisertwodegree}\\
+		\small{
+			Thesis Co-adviser\\
+			\advisertwouniv}
+	\end{minipage}\\
+	\vspace{0.75 cm} 
+	\textbf{\MakeUppercase{\reader}, \readerdegree}\\
+	\small{
+		Thesis Reader\\
+		\readeruniv}\\
+	\vspace{0.75 cm} 
+    \else
+    \begin{minipage}[t]{.44\textwidth}\centering
+	\textbf{\MakeUppercase{\reader}, \readerdegree}\\
+	\small{
+		Thesis Reader\\
+		\readeruniv}\\
+	\end{minipage}
+    \vspace{1 cm} 
+    \fi
+	
+	\begin{center}\ssp
+		Date of Submission: \vspace{0.25em}
+		
+		\datesubmission
+	\end{center}
+	\vfill
+	\begin{center}  
+		\dsp
+		Permission is given to the following people to have access to this thesis: \vspace{0.25em}
+		
+		\begin{tabular}{|l|c|}\hline
+			Available to the general public & No\\\hline
+			Available only after consultation with author/thesis adviser \qquad & Yes\\\hline
+			Available only to those bound by confidentiality agreement & No\\\hline
+		\end{tabular}
+	\end{center}
+	\vspace{30 pt}
+    \ifauthortwo
+        \ifcoadvised
+        	\begin{minipage}{.48\textwidth}\centering
+        	\underline{\hspace{5 cm}}\\	
+        	\textit{Signature of Student}\\
+        	\vspace{15 pt}	
+        	\underline{\hspace{5 cm}}\\
+        	\textit{Signature of Adviser}\\
+        	\end{minipage}%%
+        	\begin{minipage}{.48\textwidth}\centering
+        	\underline{\hspace{5 cm}}\\	
+        	\textit{Signature of Student}\\
+        	\vspace{15 pt}	
+        	\underline{\hspace{5 cm}}\\
+        	\textit{Signature of Adviser}\\
+        	\end{minipage}
+        \else	
+            \begin{minipage}{.48\textwidth}\centering
+        	\underline{\hspace{5 cm}}\\	
+        	\textit{Signature of Student}\\
+        	\vspace{20 pt}
+        	\end{minipage}%%
+        	\begin{minipage}{.48\textwidth}\centering	
+        	\underline{\hspace{5 cm}}\\	
+        	\textit{Signature of Student}\\
+        	\vspace{20 pt}
+        	\end{minipage}
+            \underline{\hspace{5 cm}}\\
+        	\textit{Signature of Adviser}\\
+         \fi
+    \else
+        \ifcoadvised
+            \underline{\hspace{5 cm}}\\	
+        	\textit{Signature of Student}\\
+        	\vspace{20 pt}
+            \begin{minipage}{.48\textwidth}\centering
+            \underline{\hspace{5 cm}}\\
+        	\textit{Signature of Adviser}\\
+        	\end{minipage}%%
+        	\begin{minipage}{.48\textwidth}\centering	
+            \underline{\hspace{5 cm}}\\
+        	\textit{Signature of Adviser}\\
+        	\end{minipage}
+        \else	
+            \begin{minipage}{.48\textwidth}\centering
+        	\underline{\hspace{5 cm}}\\	
+        	\textit{Signature of Student}\\
+        	\vspace{20 pt}
+        	\end{minipage}%%
+        	\begin{minipage}{.48\textwidth}\centering	
+            \underline{\hspace{5 cm}}\\
+        	\textit{Signature of Adviser}\\
+        	\vspace{20 pt}
+        	\end{minipage}
+         \fi
+    \fi
+
+	\end{document}
