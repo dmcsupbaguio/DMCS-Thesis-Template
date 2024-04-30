@@ -1,7 +1,7 @@
 # DMCS-Thesis-Template
 
-Department of Mathematics and Computer Science  
-College of Science
+Department of Mathematics and Computer Science <br>
+College of Science <br>
 University of the Philippines Baguio                        
 
 Send comments to dmcs.upbaguio@up.edu.ph
