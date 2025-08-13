@@ -4,24 +4,28 @@
 %% Master and Bachelor in Mathematics Thesis Defense Announcement
 %%
 %% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		
-%% Version: 08.10.2022                            
+%% Version: 2025/08/13                       
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper, 12pt]{report}
 \usepackage{geometry}
-	\geometry{textheight=10 in, left = 0.5 in, right = 0.5
- in
-	 }
-\usepackage{calc}
+	\geometry{textheight=10 in, left = 0.5 in, right = 0.5 in }
 \usepackage{graphicx}
 \graphicspath{{../Figures/}}
+
+\newif\ifauthoroneext \authoroneextfalse 
+\newif\ifauthortwoext \authortwoextfalse 
+\newif\ifauthortwo    \authortwofalse
+\newif\ifcoadvised    \coadvisedfalse
+\newif\ifexaminer     \examinertrue
+\newif\ifexaminertwo  \examinertwofalse
+\def\thesisclassification#1{\gdef\@thesisclassification{#1}}
+\def\classnote#1{\gdef\@classnote{#1}}
+
 \input{../UPBMATH_def}
+
 \pagestyle{empty}
-	
-% \authortwofalse
-% \coadvisedfalse
-% \examinertrue
-% \examinertwotrue %will not work if \examinertrue is commented
+
 \begin{document}
 	\topskip0pt
 	\vspace*{\fill}
@@ -38,21 +42,9 @@
 	\begin{minipage}{0.2\textwidth}
 	\includegraphics[height=2.5 cm, width=2.5 cm]{cslogo.png}
 	\end{minipage}
-    \bigskip
-
-%     \begin{minipage}[c]{2.5cm}
-% 		\includegraphics[scale = 0.06]{upseal.png}
-% 	\end{minipage}
-% 	\begin{minipage}[c]{5in}\small	\raggedleft
-% 		Department of Mathematics and Computer Science
-% 		College of Science\\
-%       University of the Philippines Baguio\\
-%       Governor Pack Road, 2600 Baguio City\\
-% Tel: (074)-442-7231 Telefax: (074)-444-3128
-
-% 	\end{minipage}%%
- 
+    \bigskip 
 	\vspace{0.75 cm}
+    
 	\textbf{Announcement of the Thesis Examination}\\
 	\vspace{0.5 cm} 
 	of\\
@@ -72,7 +64,7 @@
 	\vspace{0.75 cm} 
 	for the degree of\\
 	\vspace{0.15 cm}
-	{\textbf{\MakeUppercase{\degree\ of Science in Mathematics}}}\\
+	{\textbf{\MakeUppercase{\degreeonly\ of Science in Mathematics}}}\\
 	\vspace{0.75 cm} 
 	\defensedate\\
 	\defenseplace\\
