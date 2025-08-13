@@ -4,52 +4,178 @@
 %% Master and Bachelor in Mathematics Thesis Defense Approval Page
 %%
 %% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		
-%% Version: 08.10.2022                            
+%% Version: 2025/08/13                          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper, 12pt]{report}
 \usepackage{geometry}
-	\geometry{top=1 in, bottom=1 in, left=1.5 in, right=1in}
+\geometry{top=1 in, bottom=1 in, left=1.5 in, right=1in}
+
+\newif\ifauthoroneext \authoroneextfalse 
+\newif\ifauthortwoext \authortwoextfalse 
+\newif\ifauthortwo    \authortwofalse
+\newif\ifcoadvised    \coadvisedfalse
+\newif\ifexaminer     \examinertrue
+\newif\ifexaminertwo  \examinertwofalse
+\def\thesisclassification#1{\gdef\@thesisclassification{#1}}
+\def\classnote#1{\gdef\@classnote{#1}}
 
 \input{../UPBMATH_def}
-	
+
 \pagestyle{empty}
 
 \begin{document}
 \thispagestyle{empty}
 \dsp
-\noindent This is to certify that the \thesistype\ Thesis entitled "\textbf {\title}," prepared and submitted by \textbf{\authoronefirst{} \authoronelast{}}\ifauthortwo \ and \textbf{\authortwofirst{} \authortwolast{}}\fi, to fulfill part of the requirements for the degree of \textbf{\degree\ of Science in Mathematics}, was successfully defended and approved on \approvaldate.\\
+\noindent This is to certify that the \thesistype\ Thesis titled "\textbf {\title}," prepared and submitted by \textbf{\authoronefirst{} \authoronelast{}}\ifauthortwo \ and \textbf{\authortwofirst{} \authortwolast{}}\fi, to fulfill part of the requirements for the degree of \textbf{\degreeonly\ of Science in Mathematics}, was successfully defended and approved on \approvaldate.\\
 
 \vspace{1cm}
 
-\noindent \begin{minipage}{.5\textwidth}
-	\centering
-	\underline{\MakeUppercase{\@adviserone}, \adviseronedegree}\\
-	Thesis Adviser
-\end{minipage}%%
 \ifcoadvised
-    \begin{minipage}{.5\textwidth}
+    \noindent \begin{minipage}{.5\textwidth}
     	\centering
-    	\underline{\MakeUppercase{\@advisertwo}, \advisertwodegree}\\
-    	Thesis Co-adviser
-    \end{minipage}\\
-    
-    \vspace{1cm}
-    \noindent \begin{minipage}{\textwidth}
+    	\underline{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+    	Thesis Adviser
+    \end{minipage}%%
+    \begin{minipage}{.5\textwidth}
+        	\centering
+        	\underline{\MakeUppercase{\advisertwo}, \advisertwodegree}\\
+        	Thesis Co-adviser
+        \end{minipage}\\
+        
+        \vspace{1cm}
+
+   \ifexaminer
+   \ifexaminertwo
+   \noindent \begin{minipage}{\textwidth}
     	\centering
     	\underline{\MakeUppercase{\reader}, \readerdegree}\\
     	Thesis Reader
+         \end{minipage}\\
+
+        \vspace{1cm}
+
+        \noindent\begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\examiner}, \examinerdegree}\\
+    	Thesis Examiner
+    \end{minipage}%%
+    \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\examinertwo}, \examinertwodegree}\\
+    	Thesis Examiner
     \end{minipage}
-\else
-    \begin{minipage}{.5\textwidth}
+   \else
+    \noindent\begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\examiner}, \examinerdegree}\\
+    	Thesis Examiner
+    \end{minipage}%%
+    \begin{minipage}{0.5\textwidth}
     	\centering
     	\underline{\MakeUppercase{\reader}, \readerdegree}\\
     	Thesis Reader
+    \end{minipage}\\\fi
+    \else
+    \noindent\begin{minipage}{\textwidth}
+            \centering
+            \underline{\MakeUppercase{\reader}, \readerdegree}\\
+            Thesis Reader
     \end{minipage}\\
+    \fi
+\else 
+    \ifexaminer
+    \ifexaminertwo
+    \noindent \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+    	Thesis Adviser
+    \end{minipage}%%
+    \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\reader}, \readerdegree}\\
+            Thesis Reader
+    \end{minipage}\\
+
+    \vspace{1cm}
+
+    \noindent\begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\examiner}, \examinerdegree}\\
+    	Thesis Examiner
+    \end{minipage}%%
+    \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\examinertwo}, \examinertwodegree}\\
+    	Thesis Examiner
+    \end{minipage}
+    
+    \else
+    \noindent \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+    	Thesis Adviser
+    \end{minipage}%%
+    \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\examiner}, \examinerdegree}\\
+    	Thesis Examiner
+    \end{minipage}\\
+
+    \vspace{1cm}
+
+    \noindent\begin{minipage}{\textwidth}
+            \centering
+            \underline{\MakeUppercase{\reader}, \readerdegree}\\
+            Thesis Reader
+    \end{minipage}\\\fi
+
+    \else
+
+    \noindent \begin{minipage}{.5\textwidth}
+    	\centering
+    	\underline{\MakeUppercase{\adviserone}, \adviseronedegree}\\
+    	Thesis Adviser
+    \end{minipage}%%
+    \begin{minipage}{0.5\textwidth}
+            \centering
+            \underline{\MakeUppercase{\reader}, \readerdegree}\\
+            Thesis Reader
+    \end{minipage}\\ 
+    \fi
 \fi
 
+
+% \else
+%     \begin{minipage}{.5\textwidth}
+%     	\centering
+%     	\underline{\MakeUppercase{\advisertwo}, \advisertwodegree}\\
+%     	Thesis Co-adviser
+%     \end{minipage}\\
+    
+%     \vspace{1cm}
+%     \noindent \begin{minipage}{\textwidth}
+%     	\centering
+%     	\underline{\MakeUppercase{\reader}, \readerdegree}\\
+%     	Thesis Reader
+%     \end{minipage}
+
+% \else \ifexaminer
+%     \begin{minipage}{.5\textwidth}
+%     	\centering
+%     	\underline{\MakeUppercase{\examiner}, \examinerdegree}\\
+%     	Thesis Examiner
+%     \end{minipage}\\
+    
+%     \vspace{1cm}
+%     \noindent \begin{minipage}{\textwidth}
+%     	\centering
+%     	\underline{\MakeUppercase{\reader}, \readerdegree}\\
+%     	Thesis Reader
+%     \end{minipage}
+
 \vspace{1cm}
-\noindent The Department of Mathematics and Computer Science endorses the acceptance of this \thesistype\ Thesis as partial fulfillment of the requirements for the degree of \degree\ of Science in Mathematics.\\
+\noindent The Department of Mathematics and Computer Science endorses the acceptance of this \thesistype\ Thesis as partial fulfillment of the requirements for the degree of \degreeonly\ of Science in Mathematics.\\
 
 \vspace{1cm}
 \noindent\begin{minipage}{\textwidth}
@@ -58,7 +184,7 @@
 \end{minipage}
 \vspace{1 cm}
 
-\noindent This \thesistype\ Thesis is hereby officially accepted as partial fulfillment of the requirements for the degree of \degree\ of Science in Mathematics.\\
+\noindent This \thesistype\ Thesis is hereby officially accepted as partial fulfillment of the requirements for the degree of \degreeonly\ of Science in Mathematics.\\
 
 \vspace{1cm}
 \hfill \begin{minipage}{6cm}
