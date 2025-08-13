@@ -5,33 +5,36 @@
 %% Master and Bachelor in Mathematics Thesis Preamble
 %%
 %% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		
-%% Version: 2024/03/08                          
+%% Version: 2025/08/13                          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \brokenpenalty=10000
-\newif\ifauthoroneext \authoroneextfalse
-\newif\ifauthortwoext \authortwoextfalse
-\newif\ifauthortwo \authortwotrue
-\newif\ifcoadvised \coadvisedtrue
-\newif\ifexaminer \examinerfalse
-\newif\ifexaminertwo \examinertwofalse
 
-\def\degree{Bachelor}
+% \authoroneexttrue  % enable generational suffixes for 1st author
+% \authortwotrue     % enable 2nd author
+% \authortwoexttrue  % enable generational suffixes for 2nd author
+% \coadvisedtrue     % if coadvised
+% \examinerfalse     % if there are no examiners
+% \examinertwotrue   % if there are two examiners; will not work if \examinerfalse
+
+\def\degreeonly{Master}
 \def\thesistype{Graduate}
+
 
 \def\authoronefirst{Juan}
 \def\authoronelast{Cruz}
-% \def\authoroneex{Jr.}
+\def\authoroneex{Jr.}
 
 
 \def\authortwofirst{Juan}
 \def\authortwolast{Cruz}
 \def\authortwoex{Jr.}
 
+
 \def\title{Insert Title of Your Thesis}
-\def\defensedate{9 June 2024, Thursday 3:00 PM}
+\def\defensedate{7 June 2025, Friday 1:00 PM}
 \def\defenseplace{Zoom Virtual Conference Room}
-\def\datesubmission{July 2024}
-\def\approvaldate{July 2024}
+\def\datesubmission{June 2025}
+\def\approvaldate{July 2025}
 
 \def\adviserone{adviser1}
 \def\adviseronedegree{Ph.D}
@@ -54,14 +57,14 @@
 \def\readercollege{College of Science}
 \def\readeruniv{University of the Philippines Baguio}
 
-\def\examiner{examiner}
+\def\examiner{examiner1}
 \def\examinerdegree{Ph.D}
 \def\examinerposition{Professor}
 \def\examinerdept{Department of Mathematics and Computer Science}
 \def\examinercollege{College of Science}
 \def\examineruniv{University of the Philippines Baguio}
 
-\def\examinertwo{examiner}
+\def\examinertwo{examiner2}
 \def\examinertwodegree{Ph.D}
 \def\examinertwoposition{Professor}
 \def\examinertwodept{Department of Mathematics and Computer Science}
@@ -69,12 +72,21 @@
 \def\examinertwouniv{University of the Philippines Baguio}
 
 
-\def\chair{Gilbert R. Peralta}
-\def\chairdegree{Dr. rer. nat}
+\def\chair{Chair}
+\def\chairdegree{Ph.D.}
 
-\def\dean{Dymphna N. Javier}
+\def\dean{Dean}
 \def\deandegree{Ph.D}
 
+\thesisclassification{P}
+\classnote{This thesis is not available to the public. Please ask the library for assistance.} 
+% F - : a regular work, i.e., it has no patentable invention or creation, the author does not wish for personal publication, there is no confidential information
+% C - confidential information of a third-party is embedded
+% P - author wishes to publish the work personally
+% I -  has patentable or registrable invention or creation
+
+%For I, C or P use the classnote: This thesis is not available to the public. Please ask the library for assistance.
+% For F use the classnote: This thesis is available to the public.
 
 \def\dsp{\def\baselinestretch{1.667}\large\normalsize}
 \def\ssp{\def\baselinestretch{1.25}\large\normalsize}
