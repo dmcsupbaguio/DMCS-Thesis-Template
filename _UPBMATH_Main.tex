@@ -5,55 +5,38 @@
 %% Thesis Document Template
 %%
 %% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)	    
-%% Version: 23.03.2024                            
+%% Version: 2025/06/01                        
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \documentclass[a4paper, 12pt]{report}
 \input{UPBMATH_Preamble}
 
+\abs{\hspace{20 pt} This is the content of the Abstract.} %content of abstract
+
+\acknowledge{ Thank you.} %content of acknowledgements
+
 \begin{document}
-\title{Insert Title of Your Thesis} %do not capitalize all
 
-\authoronefirst{Juan}
-\authoronelast{Cruz}
-% \authoroneext{Jr.}
-% \authoroneexttrue
-
-\authortwofirst{Juan}
-\authortwolast{Cruz}
-% \authortwoext{Jr.}
-% \authortwoexttrue
-% \authortwofalse % uncomment if no second author
-
-\degreeonly{Bachelor} %enter the specific degree Bachelor, Master, or Doctor
-
-\titledate{May 2024} %date of submission to the College (titlepage)
-
-\adviser{Adviser1, Ph.D.}% main adviser
-\advisertwo{Adviser2, Ph.D.}% co-adviser
-% \coadvisedfalse % uncomment if no co-adviser
-
-
-\thesisclassification{P}
-\classnote{This thesis is not available to the public. Please ask the library for assistance.} 
-% F - : a regular work, i.e., it has no patentable invention or creation, the author does not wish for personal publication, there is no confidential information
-% C - confidential information of a third-party is embedded
-% P - author wishes to publish the work personally
-% I -  has patentable or registrable invention or creation
-
-%For I, C or P use the classnote: This thesis is not available to the public. Please ask the library for assistance.
-% For F use the classnote: This thesis is available to the public.
-
-
-\abs{\hspace{20 pt} This is the content of the Abstract.}%content of abstract
-
-\acknowledge{ Thank you. Next. }%content of acknowledgements
+\titlet{\title}
+\authoronefirstt{\authoronefirst}
+\authoronelastt{\authoronelast}
+\authoroneextt{\authoroneex}
+\authortwofirstt{\authortwofirst}
+\authortwolastt{\authortwolast}
+\authortwoextt{\authortwoex}
+\degreeonlyt{\degreeonly}
+\titledate{\datesubmission}
+\advisert{\adviserone, \adviseronedegree}
+\advisertwot{\advisertwo, \advisertwodegree}
 
 \beforepreface
-\includepdf{./copyright/copyright.pdf} %change the directory/filename once signed document is available
-\includepdf{./announcement/announcement.pdf} %change the directory/filename once signed document is available
-\includepdf{./approvalpage/approvalpage.pdf} %change the directory/filename once signed document is available
+
+%% Rerun the tex files and overwrite the pdfs in the respective subfolders 
+%% if there are changes in UPB_def.tex
+\includepdf{./copyright/copyright.pdf}       
+\includepdf{./announcement/announcement.pdf}
+\includepdf{./approvalpage/approvalpage.pdf}
 
 \abstractpage
 \acknowledgepage
@@ -74,8 +57,10 @@
 \include{chapter4numerical}
 \include{chapter5conclusions}
 
-\appendx
+\appendix
+\addappheadtotoc
 \include{appendix}
+
 %\nocite{*} %uncomment if all reference are to be included (not only the once cited)
 \printbibliography[heading=bibintoc, title={List of References}]
 \end{document}
