@@ -5,11 +5,12 @@
 %% Master and Bachelor in Mathematics Thesis Preamble
 %%
 %% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		
-%% Version: 2024/03/08                          
+%% Version: 2025/08/13                          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Main Package for UPB DMCS Math Thesis Style
 \usepackage{UPBMATH_ThesisStyle}
+\input{UPBMATH_def}
 
 %% Other Packages
 \usepackage{amsfonts}   % extended set of fonts for use in mathematics
@@ -19,8 +20,8 @@
 \usepackage{bbold}      % another mathematical font
 \usepackage{csquotes}   % For inline and display quotations
 \usepackage{graphicx}   % For Path of figures
-\usepackage{caption}
-\usepackage{subcaption}    % Caption inside minipages
+\usepackage{caption}    % For additional caption settings
+\usepackage{subcaption} % Caption inside minipages
 \usepackage{pdfpages}   % For including pdf pages
 \usepackage[refpage]{nomencl}   % For Nomenclature
 \usepackage[standard]{ntheorem} % For theorem environments
@@ -64,22 +65,10 @@
 %Figures Path
 \graphicspath{ {./Figures/} }
 
-%new paragraph in the abstract environment
-\def\newpar{\vspace{0.75em} \\   \hspace*{1.5em}}
-
 %captions for figures/tables inside minipages
 \captionsetup{labelsep=space,labelfont=bf}
-\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}.}
-\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}.}
-
-%formats
-\long\def\comment#1{}
-\def\ds{\displaystyle}
-\def\beqn{\begin{equation}}
-\def\eeqn{\end{equation}}
-\def\alignb{\begin{align}}
-\def\aligne{\end{align}}
-
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 
 % for definitions, theorems, lemma, corollary and propositions
 \theorembodyfont{\upshape}
@@ -92,23 +81,3 @@
 \renewtheorem{proposition}[theorem]{Proposition}
 \newtheorem{assumption}{A\hspace{-4 pt}}
 \renewtheorem{remark}[theorem]{Remark}
-
-%parentheses for sets
-\def\set#1{\lt\{ #1\ \rt\}}
-%parentheses
-\def\paren#1{\lt( #1 \rt)}
-%derivative of y wrt x
-\def\yprime{\frac{dy}{dx}}
-%indention
-\def\indent{\hspace{18pt}}
-
-%complex
-\def\d#1{\partial\:#1}
-\def\half{\frac{1}{2}}
-
-%peso sign
-\def\peso{{\rm P}\raisebox{2.5pt}{\kern-.74em{=}}}
-
-%example
-\def\example#1{\noindent{\bf Example #1:}}
-\def\examples{\noindent{\bf Examples:}}
