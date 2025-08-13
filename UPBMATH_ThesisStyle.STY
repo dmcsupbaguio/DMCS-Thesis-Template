@@ -8,12 +8,12 @@
 %% 		Document Style by Joma Escaner (jlescaner@up.edu.ph)
 %%
 %% Send comments to Junius Wilhelm G. Bueno (jgbueno@up.edu.ph)		            
-%% Version: 2024/03/08                            
+%% Version: 2025/08/13                            
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{UPBMATH_ThesisStyle}[2024/03/08 v 1]
-\typeout{UPB MS and BS Math Thesis Style Version 1}
+\ProvidesPackage{UPBMATH_ThesisStyle}[2025/08/13]
+\typeout{UPB MS and BS Math Thesis Style Version 2}
 
 \makeatletter
 
@@ -217,25 +217,26 @@
 
 %Here are the rest of the front matter defining macros
 
-\def\authoronelast#1{\gdef\@authoronelast{#1}}
-\def\authoronefirst#1{\gdef\@authoronefirst{#1}}
-\def\authoroneext#1{\gdef\@authoroneext{#1}}
-\def\authortwolast#1{\gdef\@authortwolast{#1}}
-\def\authortwofirst#1{\gdef\@authortwofirst{#1}}
-\def\authortwoext#1{\gdef\@authortwoext{#1}}
+\def\titlet#1{\gdef\@titlet{#1}}
+\def\authoronelastt#1{\gdef\@authoronelastt{#1}}
+\def\authoronefirstt#1{\gdef\@authoronefirstt{#1}}
+\def\authoroneextt#1{\gdef\@authoroneextt{#1}}
+\def\authortwolastt#1{\gdef\@authortwolastt{#1}}
+\def\authortwofirstt#1{\gdef\@authortwofirstt{#1}}
+\def\authortwoextt#1{\gdef\@authortwoextt{#1}}
 \def\dept#1{\gdef\@dept{#1}}
 \def\college#1{\gdef\@college{#1}}
 \def\university#1{\gdef\@university{#1}}
 \def\dean#1{\gdef\@dean{#1}}
 \def\location#1{\gdef\@location{#1}}
-\def\degreeonly#1{\gdef\@degreeonly{#1}}
+\def\degreeonlyt#1{\gdef\@degreeonlyt{#1}}
 \def\thesistype#1{\gdef\@thesistype{#1}}
 \def\degree#1{\gdef\@degree{#1}}
 \def\approvaldate#1{\gdef\@approvaldate{#1}}
 \def\specialization#1{\gdef\@specialization{#1}}
 \def\titledate#1{\gdef\@titledate{#1}}
-\def\adviser#1{\gdef\@adviser{#1}}
-\def\advisertwo#1{\gdef\@advisertwo{#1}}
+\def\advisert#1{\gdef\@advisert{#1}}
+\def\advisertwot#1{\gdef\@advisertwot{#1}}
 \def\reader#1{\gdef\@reader{#1}}
 \def\examiner#1{\gdef\@examiner{#1}}
 \def\examinertwo#1{\gdef\@examinertwo{#1}}
@@ -246,51 +247,38 @@
 \def\thesisclassification#1{\gdef\@thesisclassification{#1}}
 \def\classnote#1{\gdef\@classnote{#1}}
 \def\coverdate#1{\gdef\@coverdate{#1}}
-\def\@title{}
-\def\@authoronelast{}
-\def\@authoronefirst{}
-\def\@authoroneext{}
-\def\@authortwolast{}
-\def\@authortwofirst{}
-\def\@authortwoext{}
+\def\@titlet{}
+\def\@authoronelastt{}
+\def\@authoronefirstt{}
+\def\@authoroneextt{}
+\def\@authortwolastt{}
+\def\@authortwofirstt{}
+\def\@authortwoextt{}
 \def\@dept{Department of Mathematics and Computer Science}
 \def\@college{College of Science}
 \def\@university{University of the Philippines Baguio}
-\def\@thesistype{\@degreeonly's Thesis}
+\def\@thesistype{\@degreeonlyt's Thesis}
 \def\@location{Baguio City}
-\def\@advisertwo{}
+\def\@advisertwot{}
 \def\@approvaldate{}
-\def\@degree{\@degreeonly\ of Science in Mathematics}
+\def\@degree{\@degreeonlyt\ of Science in Mathematics}
 \def\@specialization{}
 \def\@abs{}
 \def\@thesisclassification{}
 \def\@classnote{}
 \def\@acknowledge{}
 \def\@titledate{}
-\def\@submitdate{\ifcase\the\month\or
-  January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or December\fi
-  \space \number\the\year}
+%\def\@submitdate{}
 
-% December theses should have the next year as the copyright year
-\ifnum\month=12
-   \@tempcnta=\year \advance\@tempcnta by 1
-    \edef\@copyrightyear{\number\the\@tempcnta}
-\else
-   \def\@copyrightyear{\number\the\year}
-\fi
-
-\newif\ifspecialize \specializefalse
+\newif\ifexaminer \examinertrue
+\newif\ifcoadvised   \coadvisedfalse
 \newif\ifauthoroneext \authoroneextfalse
 \newif\ifauthortwoext \authortwoextfalse
-\newif\ifacknowledge \acknowledgefalse
-\newif\ifauthortwo \authortwotrue
-\newif\ifcoadvised \coadvisedtrue
-
+\newif\ifauthortwo \authortwofalse
 
 \def\titlep{%
 \ifcoadvised 
-	\topskip0pt
+    \topskip0pt
     \thispagestyle{empty}%
     \dsp
 	\begin{center}
@@ -300,24 +288,24 @@
 	\vspace{0.5cm}
 	
 	{\textbf {\@degree}}\\
-	 \vspace{0.5cm}
+	\vspace{0.5cm}
 	
-    {\textbf{ \@authoronefirst \ \@authoronelast\ \ifauthoroneext  \@authoroneext\fi}}\\
+    {\textbf{ \@authoronefirstt \ \@authoronelastt\ \ifauthoroneext \@authoroneextt\fi}}\\
     \ifauthortwo
-        {\textbf{ \@authortwofirst \ \@authortwolast\ \ifauthortwoext  \@authortwoext\fi}}\\
+    {\textbf{ \@authortwofirstt \ \@authortwolastt\ \ifauthortwoext \@authortwoextt\fi}}\\
         \vspace{0.75cm}
     \else \vspace{1 cm} \fi
     
 	
 	
-    {\textbf{ \emph{\@title}}}
+    {\textbf{ \emph{\@titlet}}}
     \end{center}
 	\vspace{0.25cm}
 	
 	\begin{center}\ssp
     Thesis Adviser:\vspace{0.25cm}
    	 
-    {\textbf {\@adviser}}\\
+    {\textbf {\@advisert}}\\
     {\textbf{\@dept}}\\
     \expandafter{\textbf{\@university}}\\
 	\vspace{0.25cm}
@@ -325,7 +313,7 @@
     
     Thesis Co-adviser:\vspace{0.25cm}
 	
-    {\textbf {\@advisertwo}}\\
+    {\textbf {\@advisertwot}}\\
 	{\textbf{\@dept}}\\
 	\expandafter{\textbf{\@university}}\\
     \end{center}
@@ -359,20 +347,20 @@
 	{\textbf {\@degree}}\\
 	 \vspace{0.5cm}
 	
-    {\textbf{ \@authoronefirst \ \@authoronelast\ \ifauthoroneext  \@authoroneext\fi}}\\
+    {\textbf{ \@authoronefirstt \ \@authoronelastt\ \ifauthoroneext \@authoroneext\fi}}\\
     \ifauthortwo
-        {\textbf{ \@authortwofirst \ \@authortwolast\ \ifauthortwoext  \@authortwoext\fi}}\\
+    {\textbf{ \@authortwofirstt \ \@authortwolastt\ \ifauthortwoext \@authortwoext\fi}}\\
         \vspace{1 cm}
     \else \vspace{1 cm} \fi
 	
-    {\textbf{ \emph{\@title}}}
+    {\textbf{ \emph{\@titlet}}}
     \end{center}
 	\vspace{0.5cm}
 	
 	\begin{center}\ssp
     Thesis Adviser:\vspace{0.25cm}
    	 
-    {\textbf {\@adviser}}\\
+    {\textbf {\@advisert}}\\
     {\textbf{\@dept}}\\
     \expandafter{\textbf{\@university}}\\
 	\vspace{0.25cm}
@@ -400,30 +388,30 @@
 \RequirePackage{calc}
 \def\abstractpage{
     \chapter*{Abstract}
-    \begin{center}{\large \bf \@title} \end{center}
+    \begin{center}{\large \bf \@titlet }\end{center}
     \bigskip
     
     \ssp
     \fontsize{12}{12}
     \noindent
     \begin{minipage}[t]{.5\textwidth}
-    \@authoronefirst\ \@authoronelast\ \ifauthoroneext \ \@authoroneext\fi\\
+    \@authoronefirstt\ \@authoronelastt\ \ifauthoroneext \ \@authoroneextt\fi\\
     \ifauthortwo
-    \@authortwofirst\ \@authortwolast\ \ifauthoroneext \ \@authoroneext\fi\\
+    \@authortwofirstt\ \@authortwolastt\ \ifauthoroneext \ \@authoroneextt\fi\\
     \else \fi
     University of the Philippines Baguio\\
-    \@submitdate
+    \@titledate
     \end{minipage}\hfill
     \ifcoadvised
-        \begin{minipage}[t]{\maxof{\widthof{\@adviser}}{\widthof{\@advisertwo}}}
+        \begin{minipage}[t]{\maxof{\widthof{\@advisert}}{\widthof{\@advisertwot}}}
         	Advisers: \\
-        	\@adviser\\
-        	\@advisertwo
+        	\@advisert\\
+        	\@advisertwot
         \end{minipage}
     \else
-        \begin{minipage}[t]{\widthof{\@adviser}}
+        \begin{minipage}[t]{\widthof{\@advisert}}
         	Adviser: \\
-        	\@adviser
+        	\@advisert
         \end{minipage}
     \fi
     \vspace{0.4in}
